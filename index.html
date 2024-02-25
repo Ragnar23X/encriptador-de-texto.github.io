@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Encriptador de texto</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Encriptador de Texto</h1>
+        <div class="box">
+            <textarea id="texto-encriptado" class="input-text"
+                placeholder="Ingresa tu texto aquí..."></textarea>
+            <div class="buttons">
+                <button class="btn" onclick="btnEncriptar()"><i class="fas fa-lock"></i> Encriptar</button>
+                <button class="btn" onclick="btnDesencriptar()"><i class="fas fa-key"></i> Desencriptar</button>
+            </div>
+            <textarea id="campo-mensaje" class="output-text" readonly
+                placeholder="Resultado..."></textarea>
+            <button class="btn-copy" onclick="copiarResultado()">Copiar</button>
+        </div>
+    </div>
+    <div class="code-rain"></div>
+    <script src="script.js"></script>
+</body>
+</html>

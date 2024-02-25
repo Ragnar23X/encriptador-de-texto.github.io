@@ -1,0 +1,138 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.png'), url('coderain.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; 
+}
+
+.title {
+    font-size: 46px;
+    margin-bottom: 20px;
+    color: #0000009e;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative; 
+    z-index: 2; 
+}
+
+.box {
+    background-color: #1a755875;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    opacity: 90%; 
+}
+
+.input-text,
+.output-text {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1; 
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 16px; /* Tamaño de fuente */
+    font-family: 'Arial', sans-serif; /* Fuente */
+}
+
+.input-text:focus,
+.output-text:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.buttons {
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: #005306;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #199429;
+}
+
+.btn-ojo {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn-copy {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-copy:hover {
+    background-color: #218838;
+}
+
+.code-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; 
+    background: rgba(0, 0, 0, 0.05) url('coderain.png') repeat; 
+    animation: rain 60s linear infinite; 
+    opacity: 5%;
+}
+
+@keyframes shine {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+@keyframes rain {
+    0% {
+        background-position: 0 -100vh; /* Hacia arriba */
+    }
+    100% {
+        background-position: 0 100vh; /* Hacia abajo */
+    }
+}
