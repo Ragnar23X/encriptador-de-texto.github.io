@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Encriptador de texto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Vault — Cifrado privado</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Encriptador de Texto</h1>
-        <div class="box">
-            <textarea id="texto-encriptado" class="input-text"
-                placeholder="Ingresa tu texto aquí..."></textarea>
-            <div class="buttons">
-                <button class="btn" onclick="btnEncriptar()"><i class="fas fa-lock"></i> Encriptar</button>
-                <button class="btn" onclick="btnDesencriptar()"><i class="fas fa-key"></i> Desencriptar</button>
-            </div>
-            <textarea id="campo-mensaje" class="output-text" readonly
-                placeholder="Resultado..."></textarea>
-            <button class="btn-copy" onclick="copiarResultado()">Copiar</button>
-        </div>
-    </div>
-    <div class="code-rain"></div>
-    <script src="script.js"></script>
+  <main class="workspace">
+    <header><a class="brand" href="./" aria-label="Vault, inicio"><span class="brand-icon">◆</span> VAULT<span class="brand-dot">.</span></a><span class="badge"><span></span> PRIVACIDAD LOCAL</span></header>
+    <section class="intro"><p class="eyebrow">TU MENSAJE. SOLO PARA QUIEN TÚ DECIDAS.</p><h1>Privado por diseño.<br><span>Seguro por naturaleza.</span></h1><p>Cifra tus palabras con una clave exclusiva. Todo sucede en tu navegador.</p></section>
+    <section class="panel" aria-label="Herramienta de cifrado">
+      <div class="tabs" role="tablist" aria-label="Operación"><button id="encrypt-tab" role="tab" aria-selected="true" aria-controls="editor">Cifrar mensaje</button><button id="decrypt-tab" role="tab" aria-selected="false" aria-controls="editor" tabindex="-1">Descifrar mensaje</button></div>
+      <form id="editor" role="tabpanel" aria-labelledby="encrypt-tab">
+        <div class="field-heading"><label id="message-label" for="message">Tu mensaje</label><span id="count">0 caracteres</span></div>
+        <textarea id="message" placeholder="Escribe algo que solo esa persona debería leer…" required maxlength="1000000" spellcheck="false"></textarea>
+        <div id="key-input-field" class="key-field" hidden><label for="decrypt-key">Clave secreta</label><input id="decrypt-key" type="password" autocomplete="off" spellcheck="false" placeholder="Pega la clave que recibiste"><p>Necesitas la clave original del mensaje.</p></div>
+        <div class="action-row"><span class="algorithm">◈ AES-256-GCM</span><button id="submit" class="primary" type="submit">Cifrar y generar clave <span aria-hidden="true">↗</span></button></div>
+      </form>
+      <p id="status" role="status" aria-live="polite"></p>
+      <section id="result" class="result" hidden aria-label="Resultado">
+        <div class="field-heading"><label id="result-label" for="output">Mensaje cifrado</label><button class="copy" type="button" data-copy="output">Copiar mensaje</button></div><textarea id="output" readonly spellcheck="false"></textarea>
+        <div id="generated-key-field" class="key-field"><div class="field-heading"><label for="generated-key">Tu clave secreta</label><button class="copy" type="button" data-copy="generated-key">Copiar clave</button></div><input id="generated-key" readonly spellcheck="false"><p>Guarda esta clave: no podemos recuperarla. Compártela por un canal distinto al del mensaje.</p></div>
+      </section>
+    </section>
+    <footer><span>Sin cuentas. Sin servidores. Sin historial.</span><span>256 bits · Cifrado autenticado</span></footer>
+  </main>
 </body>
 </html>
