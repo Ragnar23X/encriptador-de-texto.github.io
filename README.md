@@ -27,3 +27,20 @@ node --test tests/crypto.test.js
 ```
 
 Las pruebas comprueban el texto recuperado, claves nuevas y rechazo de claves incorrectas, alteraciones y formatos inválidos. La copia al portapapeles depende de los permisos del navegador; si no está disponible, el texto queda seleccionado para copiarlo manualmente. La aplicación no almacena claves ni mensajes en almacenamiento persistente; se pierden al recargar o cerrar la página.
+
+## Aplicación de Windows (.exe)
+
+Necesitas Node.js 24 y Windows de 64 bits para crear y probar el instalador:
+
+```sh
+npm ci
+npm start
+npm test
+npm run dist:win
+```
+
+El instalador se genera en `dist/Vault-Setup-1.0.0-x64.exe`. Instala Vault para el usuario actual y permite elegir la carpeta. La aplicación funciona sin servidor y sin conexión a Internet. Node.js solo es necesario para desarrollar y compilar, no para usar el instalador.
+
+También puedes compilar sin instalar herramientas en tu PC: sube los cambios a GitHub, abre **Actions → Build Windows installer → Run workflow** y, cuando termine, descarga **Vault-Windows-x64** en **Artifacts**. Descomprime el ZIP y ejecuta el instalador. Cada push a `main` también activa la compilación.
+
+La ventana usa aislamiento de contexto, sandbox y no permite acceso a Node.js desde la página. Bloquea conexiones externas, navegación y ventanas emergentes. La sesión es temporal y no guarda mensajes ni claves. El instalador no está firmado con un certificado de editor, por lo que Windows puede mostrar una advertencia de editor desconocido; para distribuir una versión firmada es necesario configurar un certificado de firma de código.

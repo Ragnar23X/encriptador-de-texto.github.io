@@ -1,0 +1,26 @@
+{
+  "name": "vault-text-encryption",
+  "version": "1.0.0",
+  "description": "Cifrado local de mensajes con AES-256-GCM",
+  "author": "Ragnar23X",
+  "private": true,
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.js",
+    "dist:win": "electron-builder --win nsis --x64 --publish never",
+    "pack": "electron-builder --dir --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.5.1",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "io.github.ragnar23x.vault",
+    "productName": "Vault",
+    "directories": { "output": "dist" },
+    "files": ["desktop/main.cjs", "index.html", "style.css", "script.js", "package.json"],
+    "win": { "target": [{"target":"nsis","arch":["x64"]}], "artifactName": "Vault-Setup-${version}-${arch}.${ext}" },
+    "nsis": { "oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true, "deleteAppDataOnUninstall": true }
+  }
+}
